@@ -11,8 +11,9 @@ export class RecipeService {
     constructor(private shoplistService: ShoppingListService) {
         this.recipes = [
             new Recipe(
-                'Shensel', 
-                'grand shensel with souce', 
+                1,
+                'Shensel',
+                'grand shensel with souce',
                 'https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/05/thumb-1200x675.jpg',
                 [
                     new Ingredient("Meat", 2),
@@ -20,7 +21,8 @@ export class RecipeService {
                     new Ingredient("Lemon", 2),
                 ]),
             new Recipe(
-                'king burger', 
+                2,
+                'king burger',
                 'a burger from heaven',
                 'https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg',
                 [
@@ -33,6 +35,10 @@ export class RecipeService {
 
     getRecipes() {
         return this.recipes.slice();
+    }
+
+    getRecipe(id: number): Recipe {
+        return this.recipes.find(r => r.id === id);
     }
 
     takeIngredients(ingreds: Ingredient[]) {
